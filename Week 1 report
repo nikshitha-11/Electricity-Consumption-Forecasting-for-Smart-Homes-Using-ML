@@ -1,0 +1,116 @@
+Data Cleaning and Preprocessing Report
+📌 1. Introduction
+
+The Individual Household Electric Power Consumption dataset contains minute-level measurements of electrical power usage from a single household.
+Before performing data analysis and machine learning tasks, the dataset must be cleaned and preprocessed to ensure reliable results.
+
+This report describes the steps followed to clean and preprocess the dataset.
+
+📂 2. Dataset Overview
+
+Dataset Name: Household Power Consumption Dataset
+
+File Format: .txt
+
+Records: ~2,075,259 rows
+
+Features: 9
+
+Time Period: December 2006 – November 2010
+
+Dataset Columns
+Column	Description
+Date	Date of observation (dd/mm/yyyy)
+Time	Time of observation
+Global_active_power	Household global minute-averaged active power (kW)
+Global_reactive_power	Minute-averaged reactive power (kW)
+Voltage	Minute-averaged voltage (V)
+Global_intensity	Average current intensity (ampere)
+Sub_metering_1	Energy sub-metering No. 1 (Wh)
+Sub_metering_2	Energy sub-metering No. 2 (Wh)
+Sub_metering_3	Energy sub-metering No. 3 (Wh)
+🧹 3. Data Cleaning
+3.1 Handling Missing Values
+
+The dataset contained missing data marked as "?".
+These values were converted to NaN using:
+
+na_values="?"
+
+
+After conversion, rows with missing values were removed:
+
+df.dropna(inplace=True)
+
+
+✅ Ensured that all remaining data points are valid numeric values.
+
+🔄 4. Data Type Conversion
+
+The dataset originally stored numeric values as strings.
+All columns except datetime were converted to numeric format:
+
+df[col] = pd.to_numeric(df[col], errors='coerce')
+
+
+✅ Ensured all computations and modeling can be done correctly.
+
+⏳ 5. Datetime Preprocessing
+
+The dataset had separate Date and Time columns.
+They were combined into a single timestamp:
+
+df['Datetime'] = pd.to_datetime(df['Date'] + " " + df['Time'], format="%d/%m/%Y %H:%M:%S")
+
+
+Then original columns were dropped and datetime set as index:
+
+df.drop(columns=['Date', 'Time'], inplace=True)
+df.set_index('Datetime', inplace=True)
+df.sort_index(inplace=True)
+
+
+✅ The dataset is now time-series formatted, ready for forecasting.
+
+📊 6. Final Dataset Characteristics
+
+No missing values
+
+All numeric fields converted
+
+Datetime index created
+
+Sorted time series data
+
+Final Columns
+Global_active_power
+Global_reactive_power
+Voltage
+Global_intensity
+Sub_metering_1
+Sub_metering_2
+Sub_metering_3
+
+🎯 7. Conclusion
+
+The dataset has been successfully cleaned and preprocessed.
+It is now ready for:
+
+Exploratory Data Analysis (EDA)
+
+Time-series visualization
+
+Feature engineering
+
+Machine Learning modeling
+
+LSTM / Deep learning forecasting
+
+🚀 Next Steps
+
+Possible next tasks:
+
+✔️ Resample to hourly / daily averages
+✔️ Visualize power usage trends
+✔️ Build ML forecasting model (Random Forest, XGBoost)
+✔️ LSTM neural network for time-series forecasting
