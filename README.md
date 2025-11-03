@@ -1,0 +1,2 @@
+# Electricity-Consumption-Forecasting-for-Smart-Homes-Using-ML
+This project focuses on predicting household electricity consumption using machine learning techniques. By analyzing past power usage data and time-based features, the model forecasts future energy demand. The system helps identify peak usage hours, improve energy efficiency, and support smart home automation for optimized electricity usage.
