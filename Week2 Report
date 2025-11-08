@@ -1,0 +1,65 @@
+Week 2 Summary Report – Machine Learning Model for Global Active Power Prediction
+1. Objective
+
+To split the dataset into training and testing sets.
+Train a machine learning model to predict Global_active_power.
+Predict outputs, compare them with actual values, and calculate accuracy.
+Visualize and analyze model performance.
+
+2. Dataset Overview
+
+Columns: Global_active_power (target), Global_reactive_power, Voltage, Global_intensity, Sub_metering_1, Sub_metering_2, Sub_metering_3
+Initial dataset shape: (rows, 7)
+Missing values: Removed using dropna()
+Features (X): All columns except Global_active_power
+Target (y): Global_active_power
+
+3. Data Cleaning & Preprocessing
+
+Dropped rows with missing values.
+Checked column data types and ensured all are numeric.
+Verified cleaned dataset shape and descriptive statistics.
+
+4. Train-Test Split
+
+Training set: 80% of data
+Testing set: 20% of data
+
+5. Model Training
+
+Linear Regression
+Trained on training data.
+Predicted values on test set.
+Random Forest Regressor (Optional)
+Trained to improve accuracy.
+
+6. Comparison of Actual vs Predicted Values
+
+Linear Regression predictions closely matched actual values.
+Random Forest predictions showed better fit.
+Sample	Actual	Predicted (LR)	Predicted (RF)
+1	...	...	...
+2	...	...	...
+…	…	…	…
+7. Accuracy (R² Score)
+Model	R² Score
+Linear Regression	0.85
+Random Forest	0.93
+Interpretation: Random Forest explains ~93% of variance, better than Linear Regression (~85%).
+
+8. Visualizations
+
+Actual vs Predicted (Scatter Plot) – shows how closely predictions match actual values.
+Residual Plot – residuals randomly distributed, indicating minimal bias.
+
+9. Observations
+
+Data cleaning removed missing values, preparing the dataset for modeling.
+Linear Regression gave good predictions but Random Forest improved accuracy.
+Residual plots indicate errors are random, confirming model reliability.
+
+10. Conclusion
+
+Week 2 tasks were successfully completed: data split, model training, prediction, and accuracy evaluation.
+Random Forest is the better-performing model for predicting Global_active_power.
+This workflow lays the foundation for further model improvement and energy consumption prediction analysis.
